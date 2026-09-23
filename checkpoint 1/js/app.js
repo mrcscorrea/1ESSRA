@@ -87,7 +87,7 @@ btnCadastrar.addEventListener('click', function() {
         divResultado.innerText = 'Atenção: Preencha todos os campos obrigatórios em destaque!';
         return;
     }
-
+    
     // Validação Matemática do CPF
     if (!validarCPF(campoCpf.value)) {
         campoCpf.classList.add('campo-erro');
@@ -105,6 +105,24 @@ btnCadastrar.addEventListener('click', function() {
         artista: campoArtista.value.trim()
     };
 
+    const comprovante = `
+    === PRÉ-CADASTRO DE INGRESSO ROCK IN RIO ===
+    Nome: ${dadosReserva.nome}
+    CPF: ${dadosReserva.cpf}
+    E-mail: ${dadosReserva.email}
+    Celular: ${dadosReserva.celular}
+    Atração Selecionada: ${dadosReserva.artista}
+    ===========================================
+    `;
+
+    // Nome dinâmico do arquivo
+    const nomeArquivo = `ingresso_${dadosReserva.nome
+        .toLowerCase()
+        .replace(/\s+/g, '_')
+        .replace(/[^a-z0-9_]/g, '')}.txt`;
+
+    // Gera e baixa o comprovante
+    exportTxtFile(nomeArquivo, comprovante);
 
     // Mensagem de Sucesso na Tela
     divResultado.className = 'msg-sucesso';
@@ -112,4 +130,4 @@ btnCadastrar.addEventListener('click', function() {
 });
 
 // Inicialização: Carrega os dados de artistasData.js dentro do Datalist
-popularDatalistArtistas(artistasData);
+    popularDatalistArtistas(artistasData);

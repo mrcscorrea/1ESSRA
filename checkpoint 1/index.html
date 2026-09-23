@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pré-Cadastro de Ingressos - Rock in Rio</title>
-        <!-- Importação do CSS Externo -->
-        <link rel="stylesheet" href="style.css">
+        <!-- 1. Estilos da Aplicação -->
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
 
@@ -52,8 +52,11 @@
             <div id="painelResultado"></div>
         </div>
 
-        <!-- Importação dos Scripts na Ordem Correta -->
-        <script src="artistasData.js"></script>
-        <script src="app.js"></script>
+        <!-- 2. Massa de Dados (Base de dados do festival) -->
+        <script src="js/artistasData.js"></script>
+        <!-- 3. Utilitários Reutilizáveis (Provedor das funções validarCPF e salvarDadosEmTXT) -->
+        <script src ="js/utils.js"></script>
+        <!-- 4. Lógica Específica da Aplicação (Consumidor que usa as funções anteriores) -->
+        <script src="js/app.js"></script>
     </body>
 </html>
